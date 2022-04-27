@@ -1,14 +1,21 @@
 import React from 'react';
-import ListaDeprodutos from './services/ListaDeProdutos';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import InputSearch from './components/InputSearch';
+import CartShopping from './components/CartShopping';
+import Category from './components/Category';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <ListaDeprodutos />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <main>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={ InputSearch } />
+          <Route exact path="/mycart" component={ CartShopping } />
+        </Switch>
+      </BrowserRouter>
+      <Category />
+    </main>
+  );
 }
 
 export default App;
