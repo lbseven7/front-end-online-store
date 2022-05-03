@@ -3,7 +3,7 @@ import * as api from '../services/api';
 import Message from '../components/Message';
 // import InputSearch from '../components/InputSearch';
 import Category from '../components/Category';
-// import CartButton from '../components/CartButton';
+import CartButton from '../components/CartButton';
 import ItemCard from '../components/ItemCard';
 
 class Home extends Component {
@@ -39,8 +39,7 @@ class Home extends Component {
       return (
         <main>
           <header>
-            {/* <InputSearch fetch={ this.fetchlist } />
-            <CartButton /> */}
+            <CartButton />
             <input
               type="text"
               data-testid="query-input"

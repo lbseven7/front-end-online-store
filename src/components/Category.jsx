@@ -27,7 +27,6 @@ fetchList = async () => {
   getCategoryById = async () => {
     const { categoryId } = this.state;
     const categoryById = await api.getCategoryId(categoryId);
-    console.log(categoryById);
 
     this.setState({
       categoryId: categoryById,
