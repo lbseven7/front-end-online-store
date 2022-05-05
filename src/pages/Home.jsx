@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import * as api from '../services/api';
 import Message from '../components/Message';
-// import InputSearch from '../components/InputSearch';
-import Category from '../components/Category';
 import CartButton from '../components/CartButton';
 import ItemCard from '../components/ItemCard';
 
@@ -14,7 +13,15 @@ class Home extends Component {
       products: [],
       message: true,
       search: '', // acrescentei aqui o search
+      categories: [],
     };
+  }
+
+  async componentDidMount() {
+    const category = await api.getCategories();
+    this.setState({
+      categories: category,
+    });
   }
 
   handleChange = ({ target: { value } }) => { // mudança aqui trouxe do inputSearch
@@ -23,9 +30,17 @@ class Home extends Component {
     });
   }
 
+  handleClick = async ({ target }) => {
+    const { id } = target;
+    const idProduct = await api.getProductsFromCategory(id); // categorias clicadas
+    this.setState({
+      products: idProduct.results, // 50 produtos (id da categoria)
+    });
+  }
+
     fetchList = async () => {
       const { search } = this.state;
-      const list = await api.getProductsFromCategoryAndQuery(null, search); // tirei o categoryId
+      const list = await api.getQuery(search); // tirei o categoryId
       const result = list.results;
       this.setState({
         products: result,
@@ -34,7 +49,7 @@ class Home extends Component {
     }
 
     render() {
-      const { products, message, search } = this.state;
+      const { products, message, search, categories } = this.state;
       if (!products) return <p>Nenhum produto foi encontrado</p>;
       return (
         <main>
@@ -54,9 +69,6 @@ class Home extends Component {
               Search
             </button>
           </header>
-          <aside>
-            <Category />
-          </aside>
           <section>
             { message
               ? <Message />
@@ -66,7 +78,38 @@ class Home extends Component {
                 </div>
               )))}
           </section>
-
+          <div>
+            { categories.map((category) => ( // fazendo mudanças aqui ... acrescentei botão
+              <div
+                key={ category.id }
+              >
+                <button
+                  data-testid="category"
+                  type="button"
+                  id={ category.id }
+                  onClick={ this.handleClick }
+                >
+                  {category.name}
+                </button>
+              </div>))}
+            <section>
+              {
+                // Requisito 06
+                products.map((produto) => (
+                  <div key={ produto.id }>
+                    <Link
+                      key={ produto.id }
+                      produto={ produto.id }
+                      data-testid="product-detail-link"
+                      to={ `/item/${produto.id}` }
+                    >
+                      <ItemCard card={ produto } />
+                    </Link>
+                  </div>
+                ))
+              }
+            </section>
+          </div>
         </main>
       );
     }
