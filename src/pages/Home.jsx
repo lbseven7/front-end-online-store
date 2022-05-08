@@ -11,7 +11,7 @@ class Home extends Component {
 
     this.state = { // tirei o categoryId
       products: [],
-      message: true,
+      // message: true,
       search: '', // acrescentei aqui o search
       categories: [],
     };
@@ -33,8 +33,10 @@ class Home extends Component {
   handleClick = async ({ target }) => {
     const { id } = target;
     const idProduct = await api.getProductsFromCategory(id); // categorias clicadas
+    console.log(idProduct.results);
     this.setState({
       products: idProduct.results, // 50 produtos (id da categoria)
+      // message: false,
     });
   }
 
@@ -44,12 +46,12 @@ class Home extends Component {
       const result = list.results;
       this.setState({
         products: result,
-        message: false,
+        // message: false,
       });
     }
 
     render() {
-      const { products, message, search, categories } = this.state;
+      const { products, search, categories } = this.state;
       if (!products) return <p>Nenhum produto foi encontrado</p>;
       return (
         <main>
@@ -70,13 +72,7 @@ class Home extends Component {
             </button>
           </header>
           <section>
-            { message
-              ? <Message />
-              : (products.map((product) => ( // mudanças aqui (div com key)
-                <div key={ product.id }>
-                  <ItemCard card={ product } />
-                </div>
-              )))}
+            <Message />
           </section>
           <div>
             { categories.map((category) => ( // fazendo mudanças aqui ... acrescentei botão
@@ -95,6 +91,8 @@ class Home extends Component {
             <section>
               {
                 // Requisito 06
+                // message
+                //   ? <Message />
                 products.map((produto) => (
                   <div key={ produto.id }>
                     <Link
