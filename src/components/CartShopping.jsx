@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class CartShopping extends Component {
   constructor() {
@@ -20,6 +21,24 @@ class CartShopping extends Component {
     });
   }
 
+  increase = (index) => {
+    const { getLocalProduct } = this.state;
+    getLocalProduct[index].quantity += 1;
+    this.setState({
+      getLocalProduct,
+    });
+  }
+
+  decrease = (index) => {
+    const { getLocalProduct } = this.state;
+    if (getLocalProduct[index].quantity >= 1) {
+      getLocalProduct[index].quantity -= 1;
+    }
+    this.setState({
+      getLocalProduct,
+    });
+  }
+
   render() {
     const { getLocalProduct } = this.state;
     return (
@@ -34,18 +53,30 @@ class CartShopping extends Component {
               <div
                 key={ index }
               >
-                <span data-testid="shopping-cart-product-quantity">
-                  1
-
-                </span>
+                <span data-testid="shopping-cart-product-quantity">{product.quantity}</span>
+                <button
+                  type="button"
+                  data-testid="product-increase-quantity"
+                  onClick={ () => this.increase(index) }
+                >
+                  +
+                </button>
+                <button
+                  type="button"
+                  data-testid="product-decrease-quantity"
+                  onClick={ () => this.decrease(index) }
+                >
+                  -
+                </button>
                 <span data-testid="shopping-cart-product-name">
                   {product.title}
-
                 </span>
               </div>
             ))}
           </div>
         )}
+        <Link to="/">Back to Home</Link>
+
       </div>
     );
   }

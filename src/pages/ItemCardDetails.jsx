@@ -27,6 +27,7 @@ class ItemCardDetails extends Component {
   // atualiza localStorage
 
   addToCart = (product) => {
+    product.quantity = 1;
     let array = [];
     const getItem = JSON.parse(localStorage.getItem('cart'));
     if (getItem) {

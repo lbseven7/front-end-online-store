@@ -17,6 +17,7 @@ class ItemCard extends Component {
   // ajuda de Dilenio
 
   addLocalStorage = (product) => {
+    product.quantity = 1;
     let array = [];
     const getItem = JSON.parse(localStorage.getItem('cart'));
     if (getItem) {
