@@ -24,7 +24,7 @@ class CartShopping extends Component {
     const { getLocalProduct } = this.state;
     return (
       <div>
-        {getLocalProduct.length === 0 ? (
+        {(!getLocalProduct || getLocalProduct.length === 0) ? (
           <p data-testid="shopping-cart-empty-message">
             Seu carrinho está vazio
           </p>
