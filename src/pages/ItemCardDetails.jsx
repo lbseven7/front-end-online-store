@@ -1,25 +1,54 @@
-// import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import * as api from '../services/api';
 
-// class ItemCardDetails extends Component {
-//   render() {
-//     const { card: { title, thumbnail, price } } = this.props;
-//     return (
-//       <div>
-//         <h2>{ title }</h2>
-//         <img src={ thumbnail } alt={ title } />
-//         <p>{ price }</p>
-//       </div>
-//     );
-//   }
-// }
+class ItemCardDetails extends Component {
+  constructor() {
+    super();
 
-// ItemCardDetails.propTypes = {
-//   card: PropTypes.shape({
-//     title: PropTypes.string,
-//     thumbnail: PropTypes.string,
-//     price: PropTypes.number,
-//   }).isRequired,
+    this.state = {
+      productDetails: [],
+    };
+  }
+
+  componentDidMount() {
+    this.getProductDetails();
+  }
+
+  getProductDetails = async () => {
+    const { match: { params: { id } } } = this.props;
+    const productDetails = await api.getProductId(id);
+
+    this.setState({
+      productDetails,
+    });
+  }
+
+  render() {
+    const { productDetails: { title, thumbnail, price } } = this.state;
+    return (
+      <div>
+        <h2 data-testid="product-detail-name">{ title }</h2>
+        <img src={ thumbnail } alt={ title } />
+        <p>{ price }</p>
+      </div>
+    );
+  }
+}
+
+ItemCardDetails.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }).isRequired,
+  }).isRequired,
+};
+
+// ItemCardDetails.defaultProps = {
+//   match: PropTypes.shape({ params: PropTypes.shape({}) }),
 // };
 
-// export default ItemCardDetails;
+// id: PropTypes.string.isRequired,
+//  match: PropTypes.string.isRequired,
+
+export default ItemCardDetails;

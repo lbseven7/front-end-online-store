@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CartShopping from './components/CartShopping';
-import ItemCard from './components/ItemCard';
+import ItemCardDetails from './pages/ItemCardDetails';
 import Home from './pages/Home';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <Route
             exact
             path="/item/:id"
-            render={ (props) => <ItemCard { ...props } /> }
+            component={ ItemCardDetails }
           />
         </Switch>
       </BrowserRouter>

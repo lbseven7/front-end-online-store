@@ -33,7 +33,6 @@ class Home extends Component {
   handleClick = async ({ target }) => {
     const { id } = target;
     const idProduct = await api.getProductsFromCategory(id); // categorias clicadas
-    console.log(idProduct.results);
     this.setState({
       products: idProduct.results, // 50 produtos (id da categoria)
       // message: false,
