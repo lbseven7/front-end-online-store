@@ -53,7 +53,11 @@ class CartShopping extends Component {
               <div
                 key={ index }
               >
-                <span data-testid="shopping-cart-product-quantity">{product.quantity}</span>
+                <span
+                  data-testid="shopping-cart-product-quantity"
+                >
+                  {product.quantity}
+                </span>
                 <button
                   type="button"
                   data-testid="product-increase-quantity"
