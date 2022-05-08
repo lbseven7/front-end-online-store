@@ -100,8 +100,9 @@ class Home extends Component {
                       data-testid="product-detail-link"
                       to={ `/item/${produto.id}` }
                     >
-                      <ItemCard card={ produto } />
+                      Details
                     </Link>
+                    <ItemCard card={ produto } />
                   </div>
                 ))
               }
