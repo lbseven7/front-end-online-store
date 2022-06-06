@@ -7,7 +7,7 @@ import Home from './pages/Home';
 function App() {
   return (
     <main>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route exact path="/mycart" component={ CartShopping } />
