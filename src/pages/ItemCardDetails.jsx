@@ -44,23 +44,29 @@ class ItemCardDetails extends Component {
     const { productDetails: { title, thumbnail, price } } = this.state;
     const { productDetails } = this.state;
     return (
-      <div>
-        <div>
-          <h2 data-testid="product-detail-name">{ title }</h2>
-          <img src={ thumbnail } alt={ title } />
-          <p>{ price }</p>
-        </div>
-        <div>
-          <Link
-            to="/"
-            data-testid="product-detail-add-to-cart"
-            type="button"
-            onClick={ () => this.addToCart(productDetails) }
-          >
-            Add To Cart
-          </Link>
+      <div className="container">
+        <section>
+          <div>
+            <h2 data-testid="product-detail-name">{ title }</h2>
+            <img src={ thumbnail } alt={ title } />
+            <p>
+              R$
+              {' '}
+              { price }
+            </p>
 
-        </div>
+            <p>
+              <Link
+                to="/"
+                data-testid="product-detail-add-to-cart"
+                type="button"
+                onClick={ () => this.addToCart(productDetails) }
+              >
+                Add To Cart
+              </Link>
+            </p>
+          </div>
+        </section>
       </div>
     );
   }

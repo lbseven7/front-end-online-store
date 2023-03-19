@@ -61,6 +61,7 @@ class Home extends Component {
               data-testid="query-input"
               value={ search }
               onChange={ this.handleChange }
+              placeholder="Digite a categoria"
             />
             <button
               data-testid="query-button"
@@ -70,23 +71,31 @@ class Home extends Component {
               Search
             </button>
           </header>
-          <section>
+
+          <section className="message">
             <Message />
           </section>
-          <div>
-            { categories.map((category) => ( // fazendo mudanças aqui ... acrescentei botão
-              <div
-                key={ category.id }
-              >
-                <button
-                  data-testid="category"
-                  type="button"
-                  id={ category.id }
-                  onClick={ this.handleClick }
+
+          <div className="categoriesDiv">
+            <div className="categoryMap">
+              { categories.map((category) => ( // fazendo mudanças aqui ... acrescentei botão
+                <div
+                  className="categories"
+                  key={ category.id }
                 >
-                  {category.name}
-                </button>
-              </div>))}
+                  <button
+                    data-testid="category"
+                    type="button"
+                    id={ category.id }
+                    onClick={ this.handleClick }
+                  >
+                    {category.name}
+                  </button>
+
+                </div>
+              ))}
+            </div>
+
             <section>
               {
                 // Requisito 06
@@ -94,6 +103,7 @@ class Home extends Component {
                 //   ? <Message />
                 products.map((produto) => (
                   <div key={ produto.id }>
+                    <ItemCard card={ produto } />
                     <Link
                       key={ produto.id }
                       produto={ produto.id }
@@ -102,7 +112,6 @@ class Home extends Component {
                     >
                       Details
                     </Link>
-                    <ItemCard card={ produto } />
                   </div>
                 ))
               }

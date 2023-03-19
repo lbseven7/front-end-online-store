@@ -34,7 +34,10 @@ class ItemCard extends Component {
     const { card } = this.props;
     const { card: { title, thumbnail, price } } = this.props;
     return (
-      <div data-testid="product">
+      <div
+        className="products"
+        data-testid="product"
+      >
         <h2>{ title }</h2>
         <img src={ thumbnail } alt="title " />
         <p>{ price }</p>

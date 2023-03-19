@@ -1,13 +1,193 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Monserrat', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  /* background: rgb(62, 62, 62); */
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 30px;
+  background: rgb(38, 38, 38);
+}
+
+header input {
+  display: flex;
+  flex-direction: column;
+  padding: 9px;
+  outline: 0;
+}
+
+header button {
+  margin-left: 20px;
+  padding: 11px;
+  background: rgb(1, 205, 251);
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+
+header button:hover {
+  padding: 10px;
+  text-decoration: none;
+  background: rgb(250, 0, 108);
+}
+
+header span {
+  margin-right: 10px;
+  font-size: 35px;
+}
+
+.message p {
+  color: rgb(173, 172, 172);
+  align-items: center;
+  font-size: 1.5em;
+
+}
+
+.categoryMap {
+  width: 20vw;
+}
+
+.categoriesDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.categories button {
+  display: flex;
+  width: 15vw;
+  height: 50px;
+  border: 0;
+  cursor: pointer;
+  background: rgb(1, 205, 251);
+  margin-bottom: 10px;
+  margin-left: 100px;
+  margin-top: 20px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.categories button:hover{
+  background: rgb(250, 0, 108);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* background: rgb(42, 39, 39); */
+  width: 100vw;
+  margin: 1.4vw;
+  font-size: large;
+}
+
+/* details link*/
+section div a {
+  text-align: center;
+  margin-left: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(76, 109, 255);
+  cursor: pointer;
+}
+
+/* PRODUTOS */
+.products {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 350px;
+  background: rgb(248, 246, 246);
+  font-size: medium;
+  margin: 20px;
+  margin-left: 105px;
+  color: rgb(13, 13, 13);
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1, 1, 1, 1 rgba(0, 0, 0);
+}
+
+.products:hover {
+  background: rgb(237, 235, 235);
+}
+
+.products img {
+  width: 60%;
+  margin-top: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.products button {
+  width: 15vw;
+  background: rgb(250, 0, 108);
+  height: 50px;
+  border: 0;
+  cursor: pointer;
+  margin-top: 20px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.products button:hover{
+  background: rgb(1, 205, 251);
+}
+
+/* PÁGINA DE DETALHES - ITEM CARD DETAILS */
+
+.container section div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 200px;
+  background: white;
+  color: white;
+  background: rgb(12, 0, 56);
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 0 1em rgb(250, 0, 108);
+}
+
+.container h2 {
+  text-align: center;
+}
+
+.container a:hover {
+  color: rgb(0, 167, 250);
+}
+
+.container img {
+  align-self: center;
+  border-radius: 20px;
+  margin-top: 10px;
+  width: 150px;
+}
+
+.container p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.container a {
+  margin-top: 10px;
+  text-align: center;
+  color: rgb(250, 0, 108);
 }
