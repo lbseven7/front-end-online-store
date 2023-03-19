@@ -55,7 +55,6 @@ class Home extends Component {
       return (
         <main>
           <header>
-            <CartButton />
             <input
               type="text"
               data-testid="query-input"
@@ -70,6 +69,7 @@ class Home extends Component {
             >
               Search
             </button>
+            <CartButton />
           </header>
 
           <section className="message">

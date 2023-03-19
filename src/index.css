@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Monserrat', sans-serif;
+  font-family: "Monserrat", sans-serif;
 }
 
 body {
-  /* background: rgb(62, 62, 62); */
+  background: rgb(62, 62, 62);
 }
 
 header {
@@ -32,12 +32,13 @@ header button {
   text-decoration: none;
   border: 0;
   cursor: pointer;
+  margin-right: 20px;
 }
 
-header button:hover {
-  padding: 10px;
-  text-decoration: none;
-  background: rgb(250, 0, 108);
+header button:active {
+  background-color: rgb(250, 0, 108);
+  /* background-color: blueviolet; */
+  /* animation: shake 0.5s; */
 }
 
 header span {
@@ -45,11 +46,15 @@ header span {
   font-size: 35px;
 }
 
+.cart-item {
+  display: flex;
+  align-items: flex-end;
+}
+
 .message p {
   color: rgb(173, 172, 172);
   align-items: center;
   font-size: 1.5em;
-
 }
 
 .categoryMap {
@@ -75,9 +80,10 @@ header span {
   align-items: center;
   justify-content: center;
   margin-right: 15px;
+  border-radius: 10px;
 }
 
-.categories button:hover{
+.categories button:active {
   background: rgb(250, 0, 108);
 }
 
@@ -110,7 +116,7 @@ section div a {
   align-items: center;
   width: 250px;
   height: 350px;
-  background: rgb(248, 246, 246);
+  background: white;
   font-size: medium;
   margin: 20px;
   margin-left: 105px;
@@ -121,10 +127,6 @@ section div a {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 1, 1, 1, 1 rgba(0, 0, 0);
-}
-
-.products:hover {
-  background: rgb(237, 235, 235);
 }
 
 .products img {
@@ -146,7 +148,7 @@ section div a {
   justify-content: center;
 }
 
-.products button:hover{
+.products button:active {
   background: rgb(1, 205, 251);
 }
 
